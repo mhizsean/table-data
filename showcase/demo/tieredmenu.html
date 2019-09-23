@@ -1,0 +1,536 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('#tm1').puitieredmenu();
+
+            $('#tm2').puitieredmenu({
+                autoDisplay: false
+            });
+
+            $('#tm3').puitieredmenu({
+                popup: true,
+                trigger: $('#tm3trigger')
+            });
+
+            $('button').puibutton();
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                clearInterval(Showcase.pbinterval1);
+                $('#doc').puitabview('destroy');
+                $('button').puibutton('destroy');
+                $('#tm1').puitieredmenu('destroy');
+                $('#tm2').puitieredmenu('destroy');
+                $('#tm3').puitieredmenu('destroy');
+            });
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>TieredMenu</h1>
+            <p>TieredMenu displays submenus in nested overlays.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Default</h3>
+        <ul id="tm1">
+            <li> <a data-icon="fa-file-o">File</a>
+                <ul> 
+                    <li><a data-icon="fa-plus">New</a>
+                        <ul>
+                            <li><a>Project</a></li>
+                            <li><a>Other</a></li>
+                        </ul>
+                    </li> 
+                    <li><a>Open</a></li> 
+                    <li><a>Quit</a></li> 
+                </ul>
+            </li>
+            <li> <a data-icon="fa-edit">Edit</a>
+                <ul>
+                    <li><a data-icon="fa-mail-forward">Undo</a></li>
+                    <li><a data-icon="fa-mail-reply">Redo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-question">Help</a>
+                <ul>
+                    <li><a>Contents</a></li>
+                    <li>
+                        <a data-icon="fa-search">Search</a>
+                        <ul>
+                            <li><a>Text</a>
+                                <ul>
+                                    <li><a>Workspace</a></li>
+                                </ul>
+                            </li>
+                            <li><a>File</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a data-icon="fa-gear">Actions</a>
+                <ul>
+                    <li><a data-icon="fa-refresh">Edit</a>
+                        <ul>
+                            <li><a data-icon="fa-save">Save</a></li>
+                            <li><a data-icon="fa-save">Update</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-icon="fa-phone">Other</a>
+                        <ul>
+                            <li><a data-icon="fa-minus">Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-close">Quit</a>
+            </li>
+        </ul>
+
+        <h3>Click Trigger</h3>
+        <ul id="tm2">
+            <li> <a data-icon="fa-file-o">File</a>
+                <ul> 
+                    <li><a data-icon="fa-plus">New</a>
+                        <ul>
+                            <li><a>Project</a></li>
+                            <li><a>Other</a></li>
+                        </ul>
+                    </li> 
+                    <li><a>Open</a></li> 
+                    <li><a>Quit</a></li> 
+                </ul>
+            </li>
+            <li> <a data-icon="fa-edit">Edit</a>
+                <ul>
+                    <li><a data-icon="fa-mail-forward">Undo</a></li>
+                    <li><a data-icon="fa-mail-reply">Redo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-question">Help</a>
+                <ul>
+                    <li><a>Contents</a></li>
+                    <li>
+                        <a data-icon="fa-search">Search</a>
+                        <ul>
+                            <li><a>Text</a>
+                                <ul>
+                                    <li><a>Workspace</a></li>
+                                </ul>
+                            </li>
+                            <li><a>File</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a data-icon="fa-gear">Actions</a>
+                <ul>
+                    <li><a data-icon="fa-refresh">Edit</a>
+                        <ul>
+                            <li><a data-icon="fa-save">Save</a></li>
+                            <li><a data-icon="fa-save">Update</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-icon="fa-phone">Other</a>
+                        <ul>
+                            <li><a data-icon="fa-minus">Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-close">Quit</a>
+            </li>
+        </ul>
+
+        <h3>Overlay</h3>
+        <button id="tm3trigger" style="margin-top:0px">Show</button>
+        <ul id="tm3">
+            <li> <a data-icon="fa-file-o">File</a>
+                <ul> 
+                    <li><a data-icon="fa-plus">New</a>
+                        <ul>
+                            <li><a>Project</a></li>
+                            <li><a>Other</a></li>
+                        </ul>
+                    </li> 
+                    <li><a>Open</a></li> 
+                    <li><a>Quit</a></li> 
+                </ul>
+            </li>
+            <li> <a data-icon="fa-edit">Edit</a>
+                <ul>
+                    <li><a data-icon="fa-mail-forward">Undo</a></li>
+                    <li><a data-icon="fa-mail-reply">Redo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-question">Help</a>
+                <ul>
+                    <li><a>Contents</a></li>
+                    <li>
+                        <a data-icon="fa-search">Search</a>
+                        <ul>
+                            <li><a>Text</a>
+                                <ul>
+                                    <li><a>Workspace</a></li>
+                                </ul>
+                            </li>
+                            <li><a>File</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a data-icon="fa-gear">Actions</a>
+                <ul>
+                    <li><a data-icon="fa-refresh">Edit</a>
+                        <ul>
+                            <li><a data-icon="fa-save">Save</a></li>
+                            <li><a data-icon="fa-save">Update</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-icon="fa-phone">Other</a>
+                        <ul>
+                            <li><a data-icon="fa-minus">Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a data-icon="fa-close">Quit</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+
+                <div>
+
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <pre name="code" class="brush:js">
+$('#tm1').puitieredmenu();
+                        </pre>
+
+                        <pre name="code" class="brush:xml">
+&lt;ul id="mb1" &gt;
+    &lt;li &gt;
+        &lt;ul &gt;
+            &lt;li /&gt;
+            &lt;li /&gt;
+        &lt;/ul &gt;
+    &lt;/li &gt;
+    &lt;li /&gt;
+    &lt;li /&gt;
+&lt;/ul &gt;
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>popup</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Defines if menu would displayed as a popup.</td>
+                                </tr>
+                                <tr>
+                                    <td>trigger</td>
+                                    <td>string/element</td>
+                                    <td>null</td>
+                                    <td>Trigger element to show the menu in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>my</td>
+                                    <td>string</td>
+                                    <td>left top</td>
+                                    <td>Corners of menu to align with trigger in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>at</td>
+                                    <td>string</td>
+                                    <td>left bottom</td>
+                                    <td>Corner of the trigger to align with menu in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>triggerEvent</td>
+                                    <td>string</td>
+                                    <td>click</td>
+                                    <td>Event to show the menu in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>autoDisplay</td>
+                                    <td>boolean</td>
+                                    <td>true</td>
+                                    <td>Displays without the mouse click</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>-</td>
+                                    <td>Shows Menu.</td>
+                                </tr>
+                                <tr>
+                                    <td>hide</td>
+                                    <td>-</td>
+                                    <td>Hides Menu.</td>
+                                </tr>
+                                <tr>
+                                    <td>align</td>
+                                    <td>-</td>
+                                    <td>Align Menu.</td>
+                                </tr>                                           
+                            </tbody>
+                        </table> 
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+$('#tm1').puitieredmenu();
+
+$('#tm2').puitieredmenu({
+    autoDisplay: false
+});
+
+$('#tm3').puitieredmenu({
+    popup: true,
+    trigger: $('#tm3trigger')
+});
+
+$('button').puibutton();
+                        </pre>
+
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+&lt;ul id="tm1"&gt;
+    &lt;li&gt; &lt;a data-icon="fa-file-o"&gt;File&lt;/a&gt;
+        &lt;ul&gt; 
+            &lt;li&gt;&lt;a data-icon="fa-plus"&gt;New&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Project&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;Other&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Open&lt;/a&gt;&lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Quit&lt;/a&gt;&lt;/li&gt; 
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt; &lt;a data-icon="fa-edit"&gt;Edit&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-forward"&gt;Undo&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-reply"&gt;Redo&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-question"&gt;Help&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;Contents&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a data-icon="fa-search"&gt;Search&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Text&lt;/a&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a&gt;Workspace&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;File&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-gear"&gt;Actions&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-refresh"&gt;Edit&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Save&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Update&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-phone"&gt;Other&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-minus"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-close"&gt;Quit&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Click Trigger&lt;/h3&gt;
+&lt;ul id="tm2"&gt;
+    &lt;li&gt; &lt;a data-icon="fa-file-o"&gt;File&lt;/a&gt;
+        &lt;ul&gt; 
+            &lt;li&gt;&lt;a data-icon="fa-plus"&gt;New&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Project&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;Other&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Open&lt;/a&gt;&lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Quit&lt;/a&gt;&lt;/li&gt; 
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt; &lt;a data-icon="fa-edit"&gt;Edit&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-forward"&gt;Undo&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-reply"&gt;Redo&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-question"&gt;Help&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;Contents&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a data-icon="fa-search"&gt;Search&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Text&lt;/a&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a&gt;Workspace&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;File&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-gear"&gt;Actions&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-refresh"&gt;Edit&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Save&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Update&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-phone"&gt;Other&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-minus"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-close"&gt;Quit&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Overlay&lt;/h3&gt;
+&lt;button id="tm3trigger" style="margin-top:0px"&gt;Show&lt;/button&gt;
+&lt;ul id="tm3"&gt;
+    &lt;li&gt; &lt;a data-icon="fa-file-o"&gt;File&lt;/a&gt;
+        &lt;ul&gt; 
+            &lt;li&gt;&lt;a data-icon="fa-plus"&gt;New&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Project&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;Other&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Open&lt;/a&gt;&lt;/li&gt; 
+            &lt;li&gt;&lt;a&gt;Quit&lt;/a&gt;&lt;/li&gt; 
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt; &lt;a data-icon="fa-edit"&gt;Edit&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-forward"&gt;Undo&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-mail-reply"&gt;Redo&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-question"&gt;Help&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;Contents&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a data-icon="fa-search"&gt;Search&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Text&lt;/a&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a&gt;Workspace&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;File&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-gear"&gt;Actions&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a data-icon="fa-refresh"&gt;Edit&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Save&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-save"&gt;Update&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="fa-phone"&gt;Other&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a data-icon="fa-minus"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a data-icon="fa-close"&gt;Quit&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

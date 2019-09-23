@@ -1,0 +1,136 @@
+<div>
+    <script type="text/javascript">
+        $(function() {
+            $('.content-section.submenu a').on('click', function(e) {
+                Showcase.changePageWithLink($(this).attr('href'));
+                e.preventDefault();
+            });
+
+            $('#tblfilter').puidatatable({
+                caption: 'Filtering',
+                columns: [
+                    {field: 'vin', headerText: 'Vin', filter: true},
+                    {field: 'brand', headerText: 'Brand', filter: true},
+                    {field: 'year', headerText: 'Year', filter: true},
+                    {field: 'color', headerText: 'Color', filter: true}
+                ],
+                globalFilter:'#globalFilter',
+                datasource: function(callback) {
+                    $.ajax({
+                        type: "GET",
+                        url: 'showcase/resources/data/cars-large.json',
+                        dataType: "json",
+                        context: this,
+                        success: function(response) {
+                            callback.call(this, response);
+                        }
+                    });
+                },
+                paginator: {
+                    rows: 10
+                }
+            });
+            
+            $('#globalFilter').puiinputtext();
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('#globalFilter').puiinputtext('destroy');
+            });
+        });
+    </script>
+    <style type="text/css">
+        .ui-datatable {
+            margin-bottom: 40px;
+        }
+    </style>
+    
+    <div class="content-section submenu ui-helper-clearfix">
+        <ul>
+            <li><a href="datatable">&bull; DataSource</a></li>
+            <li><a href="datatablePaginator">&bull; Paginator</a></li>
+            <li><a href="datatableSort">&bull; Sort</a></li>
+            <li><a href="datatableFilter">&bull; Filter</a></li>
+            <li><a href="datatableSelection">&bull; Selection</a></li>
+            <li><a href="datatableEditable">&bull; Editable</a></li>
+            <li><a href="datatableReorder">&bull; Reorder</a></li>
+            <li><a href="datatableResize">&bull; Resize</a></li>
+            <li><a href="datatableExpansion">&bull; Expansion</a></li>
+            <li><a href="datatableScroll">&bull; Scroll</a></li>
+            <li><a href="datatableGroup">&bull; Group</a></li>
+            <li><a href="datatableResponsive">&bull; Responsive</a></li>
+            <li><a href="datatableContextMenu">&bull; ContextMenu</a></li>
+            <li><a href="datatableSticky">&bull; Sticky</a></li>
+        </ul>
+    </div>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>DataTable - Filtering</h1>
+            <p>Filtering is enabled using filter property at column configuration with customization options including filterMatchMode and 
+                custom filter function. Filtering can be done at client side or at server side in lazy mode.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">  
+        <input id="globalFilter" placeholder="Global Filter" size="30"></input>
+        <div id="tblfilter"></div>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#doc-overview">Markup</a></li>
+                    <li><a href="#doc-options">Script</a></li>
+                </ul>
+                <div>
+
+                    <div id="doc-markup">                               
+                        <pre name="code" class="brush:xml">
+&lt;input id="globalFilter" placeholder="Global Filter" size="30"&gt;&lt;/input&gt;
+&lt;div id="tblfilter"&gt;/&lt;/div&gt;
+                        </pre>
+                    </div>
+
+                    <div id="doc-script">
+                        <pre name="code" class="brush:js">
+$(function() {
+    $('#tblfilter').puidatatable({
+        caption: 'Filtering',
+        columns: [
+            {field: 'vin', headerText: 'Vin', filter: true},
+            {field: 'brand', headerText: 'Brand', filter: true},
+            {field: 'year', headerText: 'Year', filter: true},
+            {field: 'color', headerText: 'Color', filter: true}
+        ],
+        globalFilter:'#globalFilter',
+        datasource: function(callback) {
+            $.ajax({
+                type: "GET",
+                url: 'showcase/resources/data/cars-large.json',
+                dataType: "json",
+                context: this,
+                success: function(response) {
+                    callback.call(this, response);
+                }
+            });
+        },
+        paginator: {
+            rows: 10
+        }
+    });
+});
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

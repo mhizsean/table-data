@@ -1,0 +1,282 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('#basic').puiinputtextarea();
+
+            $('#resize').puiinputtextarea({autoResize: true});
+
+            $('#counter').puiinputtextarea({counter: $('#display'), counterTemplate: '{0} characters remaining.', maxlength: 10});
+
+            $('#ac').puiinputtextarea({
+                autoComplete: true,
+                scrollHeight: 150,
+                minQueryLength: 2,
+                completeSource: function(request, response) {
+                    //in a real application, make a call to a remote url by passing the request.query as parameter
+                    $.ajax({
+                        type: "GET",
+                        url: 'showcase/resources/data/themes.json',
+                        dataType: "json",
+                        context: this,
+                        success: function(data) {
+                            var filtered = [];
+                            for(var i = 0; i < data.length; i++) {
+                                if(data[i].label.indexOf(request.query) === 0) {
+                                    filtered.push(data[i]);
+                                }
+                            }
+                            response.call(this, filtered);
+                        }
+                    });
+                }
+            });
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('#basic').puiinputtextarea('destroy');
+                $('#resize').puiinputtextarea('destroy');
+                $('#counter').puiinputtextarea('destroy');
+                $('#ac').puiinputtextarea('destroy');
+            });
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>InputTextarea</h1>
+            <p>InputTextarea provides autoComplete, autoResize, remaining characters counter features.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Default</h3>
+        <textarea id="basic" rows="5" cols="30"></textarea>
+
+        <br /><br />
+
+        <h3>AutoResize</h3>
+        <textarea id="resize" rows="5" cols="30"></textarea>
+
+        <br /><br />
+
+        <h3>Maxlength with Remaining Chars</h3>
+        <textarea id="counter" rows="5" cols="30"></textarea>
+        <span id="display"></span>
+
+        <br /><br />
+
+        <h3>AutoComplete</h3>
+        <p>Complete theme names such as af*.</p>
+        <textarea id="ac" rows="5" cols="30"></textarea>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <pre class="brush:js">
+$('#default').puiinputtextarea();
+                        </pre>
+
+                        <pre class="brush:xml">
+&lt;textarea id="default" &gt;&lt;/textarea&gt;
+                        </pre>
+
+                        <p>Note: Inputtextarea requires rangyinput and cursorposition plugins for autocomplete mode.</p>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>autoResize</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>Defines if textarea increase its size automatically.</td>
+                                </tr>
+                                <tr>
+                                    <td>autoComplete</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>Defines if textarea auto complete words.</td>
+                                </tr>
+                                <tr>
+                                    <td>maxlength</td>
+                                    <td>Integer</td>
+                                    <td>null</td>
+                                    <td>Determines the maximum letters in textarea.</td>
+                                </tr>
+                                <tr>
+                                    <td>counter</td>
+                                    <td>element</td>
+                                    <td>null</td>
+                                    <td>Element to display the remaining characters.</td>
+                                </tr>
+                                <tr>
+                                    <td>counterTemplate</td>
+                                    <td>String</td>
+                                    <td>'{0}'</td>
+                                    <td>Template the string which shows, how many letters left.</td>
+                                </tr>
+                                <tr>
+                                    <td>minQueryLength</td>
+                                    <td>Integer</td>
+                                    <td>3</td>
+                                    <td>Number of characters to be typed to run a query.</td>
+                                </tr>
+                                <tr>
+                                    <td>queryDelay</td>
+                                    <td>Integer</td>
+                                    <td>700</td>
+                                    <td>Delay in ms before sending each query.</td>
+                                </tr>
+                                <tr>
+                                    <td>completeSource</td>
+                                    <td>function</td>
+                                    <td>null</td>
+                                    <td>Name of the function to provide suggestions in autocomplete mode.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 style="margin-bottom:20px;">Events</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>itemselect</td>
+                                    <td>
+                                        event: puitextareaitemselect event
+                                        <br />
+                                        item: selected item from callback.
+                                    </td>
+                                    <td>Fired when suggested item select. Autocomplete option must be true for run.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre class="brush: js">
+$('#default').puiinputtextarea({
+    itemselect: function(event, item) {
+        //...
+    }
+});
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>search</td>
+                                    <td>query: String that wanted to search in textarea.</td>
+                                    <td>Search the string in textarea.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option</td>
+                                    <td>Returns the value of the option.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option, value: Value of the option</td>
+                                    <td>Set the value of the option.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre class="brush:js">
+$('#default').puiinputtextarea('hide');
+                        </pre>    
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+&lt;script type="text/javascript"&gt;
+$(function() {
+    $('#basic').puiinputtextarea();
+
+    $('#resize').puiinputtextarea({autoResize:true});
+
+    $('#counter').puiinputtextarea({counter:$('#display'), counterTemplate:'{0} characters remaining.', maxlength:10});
+
+    $('#ac').puiinputtextarea({
+        autoComplete:true,
+        scrollHeight:150,
+        minQueryLength: 2,
+        completeSource: function(request, response) {
+            //in a real application, make a call to a remote url by passing the request.query as parameter
+            $.ajax({
+                type: "GET",
+                url: 'showcase/resources/data/themes.json',
+                dataType: "json",
+                context: this,
+                success: function(data) {
+                    var filtered = [];
+                    for(var i = 0; i < data.length; i++) {
+                        if(data[i].label.indexOf(request.query) === 0) {
+                            filtered.push(data[i]);
+                        }
+                    }
+                    response.call(this, filtered);
+                }
+            });
+        }
+    });
+
+});
+&lt;/script&gt;
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre class="brush:xml">
+&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+&lt;textarea id="basic" rows="5" cols="30"&gt;&lt;/textarea&gt;
+
+&lt;h3&gt;AutoResize&lt;/h3&gt;
+&lt;textarea id="resize" rows="5" cols="30"&gt;&lt;/textarea&gt;
+
+&lt;h3&gt;Maxlength with Remaining Chars&lt;/h3&gt;
+&lt;textarea id="counter" rows="5" cols="30"&gt;&lt;/textarea&gt;
+&lt;span id="display"&gt;&lt;/span&gt;
+
+&lt;h3&gt;AutoComplete&lt;/h3&gt;
+&lt;p&gt;Complete theme names such as af*.&lt;/p&gt;
+&lt;textarea id="ac" rows="5" cols="30"&gt;&lt;/textarea&gt;
+
+                        </pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+</div> 

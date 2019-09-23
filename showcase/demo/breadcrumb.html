@@ -1,0 +1,92 @@
+<div>
+    <script type="text/javascript">
+        $(function() {
+            $('#bc1').puibreadcrumb();
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('#bc1').puibreadcrumb('destroy');
+            });
+            
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>Breadcrumb</h1>
+            <p>Breadcrumb provides contextual information about page hierarchy.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <ul id="bc1">
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Football</a></li>
+            <li><a href="#">Countries</a></li>
+            <li><a href="#">Spain</a></li>
+            <li><a href="#">F.C. Barcelona</a></li>
+            <li><a href="#">Squad</a></li>
+            <li><a href="#">Lionel Messi</a></li>
+        </ul>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-source">Source</a></li>
+                </ul>
+
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px">Getting Started</h3>
+                        <pre name="code" class="brush:js">
+$('#default').puibreadcrumb();
+                        </pre>
+
+                        <pre name="code" class="brush:xml">
+&lt;ul id="default"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+    ...
+&lt;/ul&gt;
+                        </pre>
+
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px">Javascript</h3>
+                        <pre name="code" class="brush:js">
+&lt;script type="text/javascript"&gt;
+    $('#pm1').puibreadcrumb();
+&lt;/script&gt; 
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;ul id="bc1"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Categories&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Sports&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Football&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Countries&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Spain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;F.C. Barcelona&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Squad&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Lionel Messi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

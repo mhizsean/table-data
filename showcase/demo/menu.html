@@ -1,0 +1,198 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('#pm1').puimenu();
+
+            $('#pm2').puimenu({
+                popup: true,
+                trigger: $('#pm2trigger')
+            });
+
+            $('button').puibutton();
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('button').puibutton('destroy');
+                $('#pm1').puimenu('destroy');
+                $('#pm2').puimenu('destroy');
+            });
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>Menu</h1>
+            <p>Menu is a highly customizable navigation/command component that supports dynamic and static positioning.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Default</h3>
+        <ul id="pm1">
+            <li><h3>File</h3></li>
+            <li><a data-icon="fa-plus">New</a></li>
+            <li><a data-icon="fa-download">Open</a></li>
+            <li><h3>Edit</h3></li>
+            <li><a data-icon="fa-refresh">Undo</a></li>
+            <li><a data-icon="fa-close">Delete</a></li>
+        </ul>
+
+        <h3>Popup</h3>
+        <button id="pm2trigger" style="margin-top:0px">Show</button>
+        <ul id="pm2">
+            <li><h3>File</h3></li>
+            <li><a data-icon="fa-plus">New</a></li>
+            <li><a data-icon="fa-download">Open</a></li>
+            <li><h3>Edit</h3></li>
+            <li><a data-icon="fa-refresh">Undo</a></li>
+            <li><a data-icon="fa-close">Delete</a></li>
+        </ul>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+
+                <div>
+
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <pre name="code" class="brush:js">
+$('#pm1').puimenu();
+                        </pre>
+
+                        <pre name="code" class="brush:xml">
+&lt;ul id="pm1" &gt;
+    &lt;li /&gt;
+    &lt;li /&gt;
+    &lt;li /&gt;
+&lt;/ul &gt;
+
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>popup</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Defines if menu would displayed as a popup.</td>
+                                </tr>
+                                <tr>
+                                    <td>trigger</td>
+                                    <td>string/element</td>
+                                    <td>null</td>
+                                    <td>Trigger element to show the menu in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>my</td>
+                                    <td>string</td>
+                                    <td>left top</td>
+                                    <td>Corners of menu to align with trigger in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>at</td>
+                                    <td>string</td>
+                                    <td>left bottom</td>
+                                    <td>Corner of the trigger to align with menu in popup mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>triggerEvent</td>
+                                    <td>string</td>
+                                    <td>click</td>
+                                    <td>Event to show the menu in popup mode.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>-</td>
+                                    <td>Shows Menu.</td>
+                                </tr>
+                                <tr>
+                                    <td>hide</td>
+                                    <td>-</td>
+                                    <td>Hides Menu.</td>
+                                </tr>
+                                <tr>
+                                    <td>align</td>
+                                    <td>-</td>
+                                    <td>Aligns overlay menu.</td>
+                                </tr>                                           
+                            </tbody>
+                        </table>   
+
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+$('#pm1').puimenu();
+
+$('#pm2').puimenu({
+    popup: true,
+    trigger: $('#pm2trigger')
+});
+
+$('button').puibutton();
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+&lt;ul id="pm1"&gt;
+    &lt;li&gt;&lt;h3&gt;File&lt;/h3&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-plus"&gt;New&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-download"&gt;Open&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h3&gt;Edit&lt;/h3&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-refresh"&gt;Undo&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-close"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Popup&lt;/h3&gt;
+&lt;button id="pm2trigger" style="margin-top:0px"&gt;Show&lt;/button&gt;
+&lt;ul id="pm2"&gt;
+    &lt;li&gt;&lt;h3&gt;File&lt;/h3&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-plus"&gt;New&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-download"&gt;Open&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h3&gt;Edit&lt;/h3&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-refresh"&gt;Undo&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-icon="fa-close"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

@@ -1,0 +1,402 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('#multilistbox').puimultiselectlistbox({
+                caption: 'Categories',
+                effect: 'slide',
+                choices: [
+                    {
+                        label: 'Group 1',
+                        items: [
+                            {
+                                label: 'Group 1.1',
+                                items: [
+                                    {label: 'Option 1.1.1', value: '1.1.1'}
+                                ]
+                            },
+                            {
+                                label: 'Group 1.2',
+                                items: [
+                                    {label: 'Option 1.2.1', value: '1.2.1'},
+                                    {label: 'Option 1.2.2', value: '1.2.2'}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Group 2',
+                        items: [
+                            {
+                                label: 'Group 2.1',
+                                items: [
+                                    {label: 'Option 2.1.1', value: '2.1.1'}
+                                ]
+                            },
+                            {
+                                label: 'Group 2.2',
+                                items: [
+                                    {label: 'Option 2.2.1', value: '2.2.1'},
+                                    {label: 'Option 2.2.2', value: '2.2.2'}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Group 3',
+                        items: [
+                            {
+                                label: 'Group 3.1',
+                                items: [
+                                    {label: 'Option 3.1.1', value: '3.1.1'}
+                                ]
+                            },
+                            {
+                                label: 'Group 3.2',
+                                items: [
+                                    {label: 'Option 3.2.1', value: '3.2.1'},
+                                    {label: 'Option 3.2.2', value: '3.2.2'},
+                                    {label: 'Option 3.2.3', value: '3.2.3'}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Group 4',
+                        items: [
+                            {
+                                label: 'Group 4.1',
+                                items: [
+                                    {label: 'Option 4.1.1', value: '4.1.1'}
+                                ]
+                            },
+                            {
+                                label: 'Group 4.2',
+                                items: [
+                                    {label: 'Option 4.2.1', value: '4.2.1'},
+                                    {label: 'Option 4.2.2', value: '4.2.2'},
+                                    {label: 'Option 4.2.3', value: '4.2.3'},
+                                    {label: 'Option 4.2.4', value: '4.2.4'}
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            $('#btn').puibutton({
+                click: function (event) {
+                    $('#output').html($('#multilistbox').puimultiselectlistbox('getValue'));
+                }
+            });
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('#btn').puibutton('destroy');
+                $('#multilistbox').puimultiselectlistbox('destroy');
+            });
+            
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>MultiSelectListbox</h1>
+            <p>MultiSelectListbox is used to select an item from a collection of listboxes that are in parent-child relationship.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+
+        <div id="multilistbox"></div>
+
+        <button id="btn" type="button" style="margin-top:10px">Save</button>
+
+        <div id="output" style="margin-top:10px"></div>
+    </div>
+
+    <div class="content-section source">
+        <div>         
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <pre name="code" class="brush:xml">
+&lt;div id="mbx" &gt;&lt;/div&gt;   
+                        </pre>
+
+                        <pre name="code" class="brush:js">
+$('#mbx').puimultiselectlistbox({
+caption: 'Categories' ,
+choices: [
+{
+    label:'Group 1', 
+    items:[
+        {
+            label: 'Group 1.1', 
+            items:[
+                {label: 'Option 1.1.1',value : 'Option 1.1.1'}
+            ]
+        },
+        {
+            label: 'Group 1.2', 
+            items:[
+                {label: 'Option 1.2.1',value : 'Option 1.2.1'},
+                {label: 'Option 1.2.2',value : 'Option 1.2.2'}
+            ]
+        }
+    ]
+},
+{
+    label:'Group 2', 
+    items:[
+        {
+            label: 'Group 2.1', 
+            items:[
+                {label: 'Option 2.1.1',value : 'Option 2.1.1'}
+            ]
+        },
+        {
+            label: 'Group 2.2', 
+            items:[
+                {label: 'Option 2.2.1',value : 'Option 2.2.1'},
+                {label: 'Option 2.2.2',value : 'Option 2.2.2'}
+            ]
+        }
+    ]
+},
+{
+    label:'Group 3', 
+    items:[
+        {
+            label: 'Group 3.1', 
+            items:[
+                {label: 'Option 3.1.1',value : 'Option 3.1.1'}
+            ]
+        },
+        {
+            label: 'Group 3.2', 
+            items:[
+                {label: 'Option 3.2.1',value : 'Option 3.2.1'},
+                {label: 'Option 3.2.2',value : 'Option 3.2.2'},
+                {label: 'Option 3.2.3',value : 'Option 3.2.3'}
+            ]
+        }
+    ]
+},
+{
+    label:'Group 4', 
+    items:[
+        {
+            label: 'Group 4.1', 
+            items:[
+                {label: 'Option 4.1.1',value : 'Option 4.1.1'}
+            ]
+        },
+        {
+            label: 'Group 4.2', 
+            items:[
+                {label: 'Option 4.2.1',value : 'Option 4.2.1'},
+                {label: 'Option 4.2.2',value : 'Option 4.2.2'},
+                {label: 'Option 4.2.3',value : 'Option 4.2.3'},
+                {label: 'Option 4.2.4',value : 'Option 4.2.4'}
+            ]
+        }
+    ]
+}
+]
+
+});
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>caption</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Header of root listbox.</td>
+                                </tr>
+                                <tr>
+                                    <td>choices</td>
+                                    <td>array</td>
+                                    <td>null</td>
+                                    <td>Choices for the list.</td>
+                                </tr>
+                                <tr>
+                                    <td>effect</td>
+                                    <td>string</td>
+                                    <td>slide</td>
+                                    <td>Effect to use when showing subgroups.</td>
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Name of the request parameter map key to be used when enclosing form is submitted.</td>
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Value to show as preselected.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Parameters</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>disable</td>
+                                    <td>-</td>
+                                    <td>Disables the list container.</td>
+                                </tr>
+                                <tr>
+                                    <td>getValue</td>
+                                    <td>-</td>
+                                    <td>Returns the value of selected option.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre name="code" class="brush:js">
+$('#single').puimultiselectlistbox('getValue');
+                        </pre>
+
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+$(function() {           
+    $('#multilistbox').puimultiselectlistbox({
+        caption: 'Categories',
+        effect: 'slide',
+        choices: [
+            {
+                label: 'Group 1',
+                items: [
+                    {
+                        label: 'Group 1.1',
+                        items: [
+                            {label: 'Option 1.1.1', value: '1.1.1'}
+                        ]
+                    },
+                    {
+                        label: 'Group 1.2',
+                        items: [
+                            {label: 'Option 1.2.1', value: '1.2.1'},
+                            {label: 'Option 1.2.2', value: '1.2.2'}
+                        ]
+                    }
+                ]
+            },
+            {
+                label: 'Group 2',
+                items: [
+                    {
+                        label: 'Group 2.1',
+                        items: [
+                            {label: 'Option 2.1.1', value: '2.1.1'}
+                        ]
+                    },
+                    {
+                        label: 'Group 2.2',
+                        items: [
+                            {label: 'Option 2.2.1', value: '2.2.1'},
+                            {label: 'Option 2.2.2', value: '2.2.2'}
+                        ]
+                    }
+                ]
+            },
+            {
+                label: 'Group 3',
+                items: [
+                    {
+                        label: 'Group 3.1',
+                        items: [
+                            {label: 'Option 3.1.1', value: '3.1.1'}
+                        ]
+                    },
+                    {
+                        label: 'Group 3.2',
+                        items: [
+                            {label: 'Option 3.2.1', value: '3.2.1'},
+                            {label: 'Option 3.2.2', value: '3.2.2'},
+                            {label: 'Option 3.2.3', value: '3.2.3'}
+                        ]
+                    }
+                ]
+            },
+            {
+                label: 'Group 4',
+                items: [
+                    {
+                        label: 'Group 4.1',
+                        items: [
+                            {label: 'Option 4.1.1', value: '4.1.1'}
+                        ]
+                    },
+                    {
+                        label: 'Group 4.2',
+                        items: [
+                            {label: 'Option 4.2.1', value: '4.2.1'},
+                            {label: 'Option 4.2.2', value: '4.2.2'},
+                            {label: 'Option 4.2.3', value: '4.2.3'},
+                            {label: 'Option 4.2.4', value: '4.2.4'}
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+
+    $('#btn').puibutton({
+        click: function (event) {
+            $('#output').html($('#multilistbox').puimultiselectlistbox('getValue'));
+        }
+    });
+});
+                        </pre>
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;div id="multilistbox"&gt;&lt;/div&gt;
+
+&lt;button id="btn" type="button" style="margin-top:10px"&gt;Save&lt;/button&gt;
+
+&lt;div id="output" style="margin-top:10px"&gt;&lt;/div&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

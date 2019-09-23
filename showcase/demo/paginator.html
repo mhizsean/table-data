@@ -1,0 +1,187 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('#pag').puipaginator({
+                totalRecords: 50,
+                rows: 5
+            });
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+            });
+            
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>Paginator</h1>
+            <p>Paginator is a generic widget to display content in paged format.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Default</h3>
+        <div id="pag"></div>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <pre name="code" class="brush:js">
+$('#pag').puipaginator({
+    totalRecords: 50,
+    rows: "5"
+});
+                        </pre>
+
+                        <pre name="code" class="brush:xml">
+&lt;div id="pag"&gt;&lt;/div&gt;
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>integer</td>
+                                    <td>0</td>
+                                    <td>Index of the active page.</td>
+                                </tr>
+                                <tr>
+                                    <td>rows</td>
+                                    <td>integer</td>
+                                    <td>false</td>
+                                    <td>Defines number of data on a page.</td>
+                                </tr>
+                                <tr>
+                                    <td>totalRecords</td>
+                                    <td>integer</td>
+                                    <td>0</td>
+                                    <td>Total number of records.</td>
+                                </tr>
+                                <tr>
+                                    <td>pageLinks</td>
+                                    <td>integer</td>
+                                    <td>false</td>
+                                    <td>Defines number of page links.</td>
+                                </tr>
+                                <tr>
+                                    <td>template</td>
+                                    <td>integer</td>
+                                    <td>{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}</td>
+                                    <td>Customizable paginator template using paginator element keys.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-bottom:20px;">Events</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>paginate</td>
+                                    <td>event: puipaginatorpaginate event,
+                                        <br />
+                                        state: {<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;first: First record,<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;rows: Number of rows,<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;page: Current page,<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;pageCount: Total number of pages,<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;pageLinks: Number of page links<br/>
+                                        }
+                                    </td>
+                                    <td>Fired when page changes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <pre name="code" class="brush:js">
+    $('#default').puipaginator({
+        paginate: function(event, state) {
+            //...
+        }
+    });
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option</td>
+                                    <td>Returns the value of the option.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option, value: Value of the option</td>
+                                    <td>Set the value of the option.</td>
+                                </tr>
+                                <tr>
+                                    <td>setPage(page, silent)</td>
+                                    <td>page: New page number<br />
+                                        silent: Updates ui without calling paginate callback</td>
+                                    <td>Sets the new page and updates the ui.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre name="code" class="brush:js">
+$('#default').puipaginator('page', 2);
+                        </pre>
+
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+$(function() {
+    $('#pag').puipaginator({
+        totalRecords: 50,
+        rows: "5"
+    });
+}); 
+                        </pre>
+
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;h3 class="first"&gt;Default&lt;/h3&gt;
+&lt;div id="pag"&gt;&lt;/div&gt;
+                        </pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

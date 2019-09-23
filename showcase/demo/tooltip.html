@@ -1,0 +1,220 @@
+<div>     
+    <script type="text/javascript">
+        $(function () {
+            $('#in').puiinputtext();
+
+            $('#btn').puibutton();
+
+            $(document).puitooltip();
+
+            $('#in').puitooltip({
+                showEvent: 'focus',
+                at: 'left bottom',
+                content: '<img src="./showcase/resources/demo/images/galleria/galleria5.jpg" />'
+            });
+
+            $('#doc').puitabview();
+            
+            $(document).one('onRouteChange', function() {
+                $('#doc').puitabview('destroy');
+                $('#in').puiinputtext('destroy');
+                $('#btn').puibutton('destroy');
+                $(document).puitooltip('destroy');
+                $('#in').puitooltip('destroy');
+            });
+            
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>Tooltip</h1>
+            <p>Tooltip widget goes beyond basic browser provided tooltips by feauturing various theming, 
+                effects, events and custom content support.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Button</h3>
+        <button type="button" id="btn" title="Lorem ipsum dolor sit amet">Save</button>
+
+        <h3>Image</h3>
+        <img src="./showcase/resources/demo/images/galleria/galleria1.jpg" title="Sed do eiusmod tempor incididunt" />
+
+        <h3>Link</h3>
+        <a href="#" title="Consectetur adipisicing elit">Hover me!</a>
+
+        <h3>Customized</h3>
+        <input type="text" id="in" name="in"  value="Focus me!"/>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px;">Getting Started</h3>
+                        <h4>Global Mode</h4>
+                        <pre name="code" class="brush:js">
+$(document).puitooltip();
+                        </pre>
+                        
+                        <h4>Specific Target with Options</h4>
+                        
+                        <pre name="code" class="brush:xml">
+&lt;input type="text" id="in" name="in"  value="Focus me!"/&gt;
+                        </pre>
+                        
+                        <pre name="code" class="brush:js">
+$('#in').puitooltip({
+    showEvent: 'focus',
+    at: 'left bottom',
+    content: '&lt;img src="./showcase/resources/demo/images/galleria/galleria5.jpg" /&gt;'
+});
+                        </pre>
+                        
+                        <h3 style="margin-bottom:20px;">Attributes</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>showEvent</td>
+                                    <td>string</td>
+                                    <td>mouseover</td>
+                                    <td>Event to show the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>hideEvent</td>
+                                    <td>string</td>
+                                    <td>mouseout</td>
+                                    <td>Event to hide the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>showEffect</td>
+                                    <td>string</td>
+                                    <td>fade</td>
+                                    <td>Effect to display when showing the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>showEffect</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Effect to display when hiding the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>showEffectSpeed</td>
+                                    <td>int/string</td>
+                                    <td>normal</td>
+                                    <td>Speed in milliseconds or keywords like slow, normal and fast.</td>
+                                </tr>
+                                <tr>
+                                    <td>hideEffectSpeed</td>
+                                    <td>int/string</td>
+                                    <td>normal</td>
+                                    <td>Speed in milliseconds or keywords like slow, normal and fast.</td>
+                                </tr>
+                                <tr>
+                                    <td>my</td>
+                                    <td>string</td>
+                                    <td>left top</td>
+                                    <td>Corner of tooltip relative to target.</td>
+                                </tr>
+                                <tr>
+                                    <td>at</td>
+                                    <td>string</td>
+                                    <td>right bottom</td>
+                                    <td>Corner of target relative to tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>showDelay</td>
+                                    <td>int</td>
+                                    <td>150</td>
+                                    <td>Delay in milliseconds before showing the tooltip.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-bottom:20px;">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>-</td>
+                                    <td>Displays the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>hide</td>
+                                    <td>-</td>
+                                    <td>Hides the tooltip.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option</td>
+                                    <td>Returns the value of the option.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option, value: Value of the option</td>
+                                    <td>Set the value of the option.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+$(function() {
+    $('#in').puiinputtext(); 
+
+    $('#btn').puibutton(); 
+
+    $(document).puitooltip();
+
+    $('#in').puitooltip({
+        showEvent: 'focus',
+        at: 'left bottom',
+        content: '&lt;img src="./showcase/resources/demo/images/galleria/galleria5.jpg" /&gt;'
+    });
+});
+                        </pre>
+
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;h3 class="first"&gt;Button&lt;/h3&gt;
+&lt;button type="button" id="btn" title="Lorem ipsum dolor sit amet"&gt;Save&lt;/button&gt;
+
+&lt;h3&gt;Image&lt;/h3&gt;
+&lt;img src="./showcase/resources/demo/images/galleria/galleria1.jpg" title="Sed do eiusmod tempor incididunt" /&gt;
+
+&lt;h3&gt;Link&lt;/h3&gt;
+&lt;a href="#" title="Consectetur adipisicing elit"&gt;Hover me!&lt;/a&gt;
+
+&lt;h3&gt;Customized&lt;/h3&gt;
+&lt;input type="text" id="in" name="in"  value="Focus me!"/&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>

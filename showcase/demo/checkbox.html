@@ -1,0 +1,182 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $(':checkbox').puicheckbox();
+
+            $('#doc').puitabview();
+
+            $(document).one('onRouteChange', function () {
+                $('#doc').puitabview('destroy');
+                $(':checkbox').puicheckbox('destroy');
+            });
+
+        });
+    </script>
+
+    <div class="content-section introduction">
+        <div class="feature-intro">
+            <h1>Checkbox</h1>
+            <p>Checkbox is an extension to standard checkbox element with skinning capabilities.</p>
+        </div>
+    </div>
+
+    <div class="content-section implementation">
+        <h3 class="first">Basic</h3>
+        <div class="ui-g" style="width:250px">
+            <div class="ui-g-12">
+                <input type="checkbox" name="cb1" id="cb1_1" value="1" />
+                <label for="cb1_1">Option 1</label>
+            </div>
+            <div class="ui-g-12">
+                <input type="checkbox" name="cb1" id="cb1_2" value="2" />
+                <label for="cb1_2">Option 2</label>
+            </div>
+            <div class="ui-g-12">
+                <input type="checkbox" name="cb1" id="cb1_3" value="3" />
+                <label for="cb1_3">Option 3</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section source">
+        <div>
+            <div id="doc">
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#doc-methods">Source</a></li>
+                </ul>
+                <div>
+                    <div id="documentation">
+                        <h3 style="margin-bottom:20px">Getting Started</h3>
+                        <pre name="code" class="brush:xml">
+    &lt;input type="checkbox" name="chk" id="chk1" value="1"/&gt;
+                        </pre>
+
+                        <pre name="code" class="brush:js">
+    $('#chk1').puicheckbox();
+                        </pre>
+
+                        <h3 style="margin-bottom:20px">Events</h3>
+                        <table class="doc-table">
+                            <thead>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>change</td>
+                                    <td>event: puicheckboxchange event
+                                        <br /> checked: Boolean value of selected state.
+                                    </td>
+                                    <td>Fired when value changes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre name="code" class="brush:js">
+    $(':checkbox').puicheckbox({
+        change: function(event, checked) {
+            //..
+    }});
+                        </pre>
+
+                        <h3 style="margin-bottom:20px">Functions</h3>
+                        <table class="doc-table">
+                            <thead>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>check</td>
+                                    <td>-</td>
+                                    <td>Selects value.</td>
+                                </tr>
+                                <tr>
+                                    <td>uncheck</td>
+                                    <td>-</td>
+                                    <td>Unselects value.</td>
+                                </tr>
+                                <tr>
+                                    <td>toggle</td>
+                                    <td>-</td>
+                                    <td>Toggles checked state.</td>
+                                </tr>
+                                <tr>
+                                    <td>isChecked</td>
+                                    <td>value: Boolean value representing checked state.</td>
+                                    <td>Returns checked state.</td>
+                                </tr>
+                                <tr>
+                                    <td>enable</td>
+                                    <td>-</td>
+                                    <td>Enable the widget.</td>
+                                </tr>
+                                <tr>
+                                    <td>disable</td>
+                                    <td>-</td>
+                                    <td>Disable the widget.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option</td>
+                                    <td>Returns the value of the option.</td>
+                                </tr>
+                                <tr>
+                                    <td>option</td>
+                                    <td>name: Name of the option, value: Value of the option</td>
+                                    <td>Set the value of the option.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Example</h3>
+                        <pre name="code" class="brush:js">
+    $('#default').puicheckbox('check');
+                        </pre>
+
+                    </div>
+
+                    <div id="doc-source">
+                        <h3 style="margin-bottom:20px;">Javascript</h3>
+                        <pre name="code" class="brush:js">
+    &lt;script type="text/javascript"&gt;
+        $(function() {
+            $(':checkbox').puicheckbox();
+        });
+    &lt;/script&gt;
+                        </pre>
+                        <h3 style="margin-bottom:20px;">HTML</h3>
+                        <pre name="code" class="brush:xml">
+&lt;h3 class="first"&gt;Basic&lt;/h3&gt;
+&lt;div class="ui-g" style="width:250px"&gt;
+    &lt;div class="ui-g-12"&gt;
+        &lt;input type="checkbox" name="cb1" id="cb1_1" value="1"/&gt;
+        &lt;label for="cb1_1"&gt;Option 1&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;
+        &lt;input type="checkbox" name="cb1" id="cb1_2" value="2"/&gt;
+        &lt;label for="cb1_2"&gt;Option 2&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;
+        &lt;input type="checkbox" name="cb1" id="cb1_3" value="3"/&gt;
+        &lt;label for="cb1_3"&gt;Option 3&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                        </pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="javascript">
+        SyntaxHighlighter.highlight();
+    </script>
+
+</div>
